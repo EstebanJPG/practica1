@@ -1,4 +1,4 @@
-package psp.esteban.sockets.practica1.Ejercicio1;
+package psp.esteban.sockets.practica1.Ejercicio1.TCP;
 
 import java.io.IOException;
 import java.net.ServerSocket;
