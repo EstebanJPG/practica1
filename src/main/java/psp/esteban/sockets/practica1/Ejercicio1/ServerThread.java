@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.time.LocalDateTime;
 
+
 public class ServerThread implements Runnable {
 
 	  private Socket socket = null;
@@ -30,22 +31,22 @@ public class ServerThread implements Runnable {
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 			
 			
-			String meString= "Bienvenido al servidor SERENO , La fecha y data actuales son: "+  LocalDateTime.now();
+			String meString= "Bienvenido al servidor SERENO , La fecha y data actuales son: "+ LocalDateTime.now();
 			bw.write(meString);
 			bw.newLine();
 			bw.flush();
 			
 			String inputLine= br.readLine();
 			
-			while(inputLine!=null) {
+			if(inputLine!=null) {
 				System.out.println(inputLine);
 				
 				 if (inputLine.equals("Bye"))
-	                    break;
+					 br.close();
+						bw.close();
 				
 			}
-			br.close();
-			bw.close();
+
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
